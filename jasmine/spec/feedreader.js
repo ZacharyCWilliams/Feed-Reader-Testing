@@ -56,7 +56,7 @@ $(function () {
    * hiding/showing of the menu element.
    */
     it('is hidden by default', function () {
-      expect(document.body.className).toBe("menu-hidden");
+      expect(document.body.className).toBe('menu-hidden');
     });
      /* TODO: Write a test that ensures the menu changes
       * visibility when the menu icon is clicked. This test
@@ -64,8 +64,8 @@ $(function () {
       * clicked and does it hide when clicked again.
       */
     it('changes visibility when menu icon is clicked', function () {
-      $(".menu-icon-link").trigger('click');
-      expect(document.body.className).toBe("");
+      $('.menu-icon-link').trigger('click');
+      expect(document.body.className).toBe('');
     });
   });
   /* TODO: Write a new test suite named "Initial Entries" */
