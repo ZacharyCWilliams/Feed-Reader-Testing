@@ -39,14 +39,20 @@ $(function () {
   describe('The Menu', function () {
     // Make sure menu is hidden by default
     it('is hidden by default', function () {
-      expect(document.body.className).toBe('menu-hidden');
+      expect($('body').hasClass('menu-hidden')).toBe(true);
     });
     // Make sure menu button is working (shows/hides menu on click)
-    it('changes visibility when menu icon is clicked', function () {
+    it('becomes visibile when menu icon is clicked', function () {
       // On menu icon click
       $('.menu-icon-link').trigger('click');
       // Make sure menu-hidden class is removed
-      expect(document.body.className).toBe('');
+      expect($('body').hasClass('menu-hidden')).toBe(false);
+    });
+    it('changes back to hidden when clicked again', function () {
+      // If the menu is clicked again
+      $('.menu-icon-link').trigger('click');
+      // Make sure menu-hidden class is added back
+      expect($('body').hasClass('menu-hidden')).toBe(true);
     });
   });
   /* TODO: Write a new test suite named "Initial Entries" */
@@ -77,7 +83,7 @@ $(function () {
       // Feed changes
       window.loadFeed(1, function () {
         // Make sure content changes
-        expect($('.feed').html() !== oldContent).toBeTruthy();
+        expect($('.feed').html).not.toBe(oldContent);
         done();
       });
     });
